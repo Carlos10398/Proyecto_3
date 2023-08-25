@@ -12,6 +12,13 @@ from sklearn.metrics.pairwise        import linear_kernel
 
 df = pd.read_csv('anime2.csv')
 
+app = FastAPI()
+### PRESENTACION:
+### Creaoms consulta como presentacion con nuestro nombre
+@app.get('/')
+def presentacion():
+    return 'Carlos_Vargas'
+    
 @app.get("/Recomendacion/{variable}")
 def Recomendacion(variable):
     generos = df[df['tags'].apply(lambda x: all(tag in x for tag in variable))][['title', 'tags','rating','votes','description','eps','mediaType']]
