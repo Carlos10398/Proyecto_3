@@ -1,5 +1,5 @@
 import pandas as pd
-import numpy as np
+import numpy  as np
 from datetime import datetime
 from fastapi import FastAPI
 
@@ -10,7 +10,6 @@ from sklearn.utils.extmath           import randomized_svd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise        import linear_kernel
 
-df = pd.read_csv('anime2.csv')
 
 app = FastAPI()
 ### PRESENTACION:
@@ -18,6 +17,8 @@ app = FastAPI()
 @app.get('/')
 def presentacion():
     return 'Carlos_Vargas'
+
+df = pd.read_csv('anime2.csv')
     
 @app.get("/Recomendacion/{variable}")
 def Recomendacion(variable):
