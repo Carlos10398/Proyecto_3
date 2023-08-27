@@ -18,7 +18,7 @@ app = FastAPI()
 def presentacion():
     return 'Carlos_Vargas'
 
-df = pd.read_csv('anime2.csv')
+df = pd.read_csv('anime2.csv', sep=',')
     
 @app.get("/Recomendacion/{variable}")
 def Recomendacion(variable):
