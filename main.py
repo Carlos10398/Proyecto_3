@@ -23,5 +23,5 @@ df = pd.read_csv('anime2.csv', sep=',')
 @app.get("/Recomendacion/{variable}")
 def Recomendacion(variable):
     generos = df[df['tags'].apply(lambda x: all(tag in x for tag in variable))][['title', 'tags','rating','votes','description','eps','mediaType','watched']]
-    valores = generos.nlargest(10, 'watched')[['title', 'watched', 'votes']]
+    valores = generos.nlargest(10, 'watched')[['title', 'tags','rating','votes','description','eps','mediaType','watched']]
     return valores
